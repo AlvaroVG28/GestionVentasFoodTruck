@@ -41,4 +41,23 @@ public class Main {
         mostrarMensaje("");
         mostrarMensaje(" Registro de ventas completado y validado exitosamente.");
     }
+    // 4. CUARTO: Validación (Método para leer y validar el dato)
+    private static double leerDato(String mensaje) {
+        while (true) {
+            System.out.print(mensaje);
+
+            if (!SCANNER.hasNextDouble()) {
+                mostrarMensaje("Error: Ingrese un valor númerico valido");
+                SCANNER.next();
+                continue;
+            }
+
+            double venta = SCANNER.nextDouble();
+            if (venta < 0) {
+                mostrarMensaje("Error: El valor no puede ser negativo. Intente de nuevo");
+                continue;
+            }
+            return venta;
+        }
+    }
     }
