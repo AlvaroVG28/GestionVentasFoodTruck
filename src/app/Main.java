@@ -60,4 +60,37 @@ public class Main {
             return venta;
         }
     }
+    // 5. QUINTO: Método reporte
+    private static void calcularReportes(String[] productos, double[][] ventas) {
+        double totalGeneral = 0;
+
+        mostrarMensaje("");
+        mostrarMensaje("==========================================================");
+        mostrarMensaje("               REPORTE FINANCIERO FINAL                   ");
+        mostrarMensaje("==========================================================");
+        mostrarMensaje("--- TOTAL RECAUDADO POR PRODUCTO ---");
+
+        for (int i = 0; i < productos.length; i++) {
+            double totalProducto = 0;
+
+            for (int j = 0; j < ventas[i].length; j++) {
+                totalProducto += ventas[i][j];
+            }
+
+            mostrarMensaje("Total " + productos[i] + ": $" + totalProducto);
+            totalGeneral += totalProducto;
+        }
+
+        mostrarMensaje("----------------------------------------------------------");
+        mostrarMensaje("TOTAL GENERAL RECAUDADO POR EL FOOD TRUCK: $" + totalGeneral);
+        mostrarMensaje("----------------------------------------------------------");
+
+        if (totalGeneral > META_VENTAS) {
+            mostrarMensaje("ESTADO:  Meta de Ventas Alcanzada!");
+        } else {
+            mostrarMensaje("ESTADO: Meta No Alcanzada.");
+        }
+
+        mostrarMensaje("==========================================================");
     }
+}
